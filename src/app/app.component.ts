@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimationOptions } from 'ngx-lottie';
 import { LOTTIE } from './constants';
+import { HammerGestureConfig, HammerModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -42,6 +43,7 @@ export class AppComponent implements OnInit {
   }
 
   // share function
+  // set to press using hammerjs
   shareContent() {
     
     navigator.share({
@@ -53,6 +55,7 @@ export class AppComponent implements OnInit {
   }
 
   // click for next animation function
+  // set to tap using hammerjs
   nextAnimation() {
 
     // incr idx, loop back if exceed array length
@@ -65,6 +68,19 @@ export class AppComponent implements OnInit {
     localStorage.setItem('idx', `${this.index}`)
     localStorage.setItem('updated', (new Date()).toISOString())
 
+  }
+
+  // hammerjs for gestures
+  onPan(event: any) {
+    console.log('Pan event:', event);
+  }
+
+  onSwipeLeft() {
+    console.log('Swiped Left!');
+  }
+
+  onSwipeRight() {
+    console.log('Swiped Right!');
   }
 
 }

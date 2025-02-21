@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
@@ -13,7 +13,8 @@ import player  from 'lottie-web'
   ],
   imports: [
     BrowserModule,
-    LottieComponent
+    LottieComponent,
+    HammerModule,
   ],
   providers: [
     // load lottie player service
